@@ -3,9 +3,7 @@ version: "3.2"
 services:
 #Mysql Container
   mysql:
-    image: mysql:5.7.23
-    container_name: mysql
-    hostname: mysql
+    image: mysql:8.0.23
     volumes:
       - /var/lib/mysql:/var/lib/mysql
     env_file:
@@ -15,14 +13,14 @@ services:
 #GLPI Container
   glpi:
     image: diouxx/glpi
-    container_name : glpi
-    hostname: glpi
-    ports:
-      - "80:80"
+#    ports:
+#      - "80:80"
     volumes:
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
       - /var/www/html/glpi/:/var/www/html/glpi
     environment:
-      - TIMEZONE=Europe/Brussels
+      - TIMEZONE=Europe/Paris
+      - CRON_EVERYMINUTES=1
+      - VERSION_GLPI=9.3.3
     restart: always
