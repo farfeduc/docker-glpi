@@ -1,4 +1,4 @@
-FROM debian:10.9
+FROM debian:bullseye
 
 LABEL "MAINTAINER" "DiouxX github@diouxx.be"
 #Ne pas poser de question à l'installation
